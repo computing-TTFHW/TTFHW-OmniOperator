@@ -1,0 +1,29 @@
+# Example image build configuration
+# This configuration demonstrates how to build container images
+# from source repositories with multi-platform support.
+
+# Registry and organization defaults
+registry: ghcr.io
+org: computing-ttfhw
+
+# Source repositories
+sources:
+  - name: example-source
+    url: https://github.com/example/example-repo.git
+    branch: main
+
+# Image definitions
+images:
+  - name: example-image
+    source: example-source
+    repository: example-image
+    dockerfile: Dockerfile
+    context: ""
+    tags:
+      - latest
+      - v1.0
+    platforms:
+      - linux/amd64
+      - linux/arm64
+    build_args:
+      VERSION: "1.0.0"
